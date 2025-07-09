@@ -1,0 +1,615 @@
+/* 
+  Custom Tailwind-inspired Stylesheet
+  -----------------------------------
+  A clean, readable, and nicely restyled CSS file for a modern web project.
+  Includes utility classes, responsive design, and custom enhancements.
+*/
+
+/* Base Reset & Typography */
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Segoe UI", "Roboto", "Helvetica Neue", Arial,
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background: #181818;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  margin: 0 0 0.5em 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.25rem;
+}
+h5,
+h6 {
+  font-size: 1rem;
+}
+
+a {
+  color: #cabbf6;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover,
+.hover\:underline:hover {
+  color: #90f7df;
+  text-decoration: underline;
+}
+
+p {
+  margin: 0 0 1em 0;
+  line-height: 1.8;
+}
+
+ul,
+ol {
+  margin: 0 0 1em 1.5em;
+  padding: 0;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+code,
+pre {
+  font-family: "Fira Mono", "Consolas", "Menlo", monospace;
+  background: #232323;
+  color: #cabbf6;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 2em 0;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.flex {
+  display: flex;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-8 {
+  gap: 2rem;
+}
+
+.grid {
+  display: grid;
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 768px) {
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+.font-medium {
+  font-weight: 500;
+}
+.font-light {
+  font-weight: 300;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.shadow-lg {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+}
+
+.bg-primary {
+  background: linear-gradient(90deg, #896ae4 0%, #34c5a2 100%);
+  color: #fff;
+}
+.bg-grey-dark {
+  background: #212121;
+}
+.bg-grey {
+  background: #333;
+}
+.bg-grey-light {
+  background: #555;
+}
+.bg-white {
+  background: #fff;
+  color: #181818;
+}
+.bg-translucent {
+  background: rgba(243, 245, 247, 0.27);
+}
+
+.text-white {
+  color: #fff;
+}
+.text-grey-dark {
+  color: #212121;
+}
+.text-grey-xlight {
+  color: #a3a3a3;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.pt-7 {
+  padding-top: 1.75rem;
+}
+.pb-24 {
+  padding-bottom: 6rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.w-full {
+  width: 100%;
+}
+.h-20 {
+  height: 5rem;
+}
+.h-44 {
+  height: 11rem;
+}
+.h-72 {
+  height: 18rem;
+}
+
+.transition {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.transition-all {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.duration-300 {
+  transition-duration: 0.3s;
+}
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .sm\:text-xl {
+    font-size: 1.25rem;
+  }
+  .sm\:flex {
+    display: flex;
+  }
+  .sm\:block {
+    display: block;
+  }
+  .sm\:hidden {
+    display: none;
+  }
+  .sm\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex;
+  }
+  .md\:block {
+    display: block;
+  }
+  .md\:hidden {
+    display: none;
+  }
+  .md\:text-4xl {
+    font-size: 2.25rem;
+  }
+  .md\:mb-5 {
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:text-5xl {
+    font-size: 3rem;
+  }
+  .lg\:mb-16 {
+    margin-bottom: 4rem;
+  }
+  .lg\:flex-col {
+    flex-direction: column;
+  }
+  .lg\:gap-16 {
+    gap: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:flex-row {
+    flex-direction: row;
+  }
+  .xl\:text-xl {
+    font-size: 1.25rem;
+  }
+}
+
+/* Custom Components */
+.hero {
+  padding-top: 6rem;
+  background: radial-gradient(
+      50% 50% at 50% 50%,
+      #896ae4 0%,
+      rgba(67, 151, 117, 0) 100%
+    ),
+    conic-gradient(
+      from 175deg at 50% 50%,
+      #3e9644 -56deg,
+      #896ae4 27deg,
+      #34c5a2 169deg,
+      #3e9644 304deg,
+      #896ae4 387deg
+    );
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #c0abfe, #90f7df);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.glow {
+  filter: drop-shadow(0 0 0.2rem #ffffff21);
+}
+
+.scroll-up-button {
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  color: #fff;
+  background: #333;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(137, 106, 228, 0.15);
+  transition: background 0.3s, transform 0.3s;
+}
+.scroll-up-button:before {
+  content: "\2191";
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.scroll-up-button:hover {
+  background: #896ae4;
+  transform: translateY(-4px) scale(1.04);
+}
+
+footer {
+  margin-top: 3%;
+  border-top: 1px solid #cabbf6;
+  background: #151515;
+  padding: 2rem 0;
+  text-align: center;
+  color: #a3a3a3;
+  font-size: 1rem;
+}
+
+/* Community Image Section */
+.community-image-headline {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.community-image-container {
+  background: #151515;
+  margin-bottom: 7%;
+  padding-top: 3%;
+  padding-bottom: 10%;
+  width: 100%;
+  position: relative;
+}
+.community-image-container:before,
+.community-image-container:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #896ae4, #34c5a2);
+}
+.community-image-container:before {
+  top: 0;
+}
+.community-image-container:after {
+  bottom: 0;
+}
+
+/* Markdown Content Styling */
+.markdown h1 {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.markdown h2 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.markdown h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.markdown h4 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+.markdown p {
+  margin-bottom: 0.75rem;
+  line-height: 2rem;
+}
+.markdown a {
+  font-weight: 700;
+  text-decoration: underline;
+  color: #c8baf3;
+  transition: color 0.15s;
+}
+.markdown a:hover {
+  color: #90f7df;
+}
+.markdown ul {
+  position: relative;
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+.markdown li {
+  margin-left: 1rem;
+  position: relative;
+}
+.markdown li:before {
+  content: "-";
+  position: absolute;
+  left: -1rem;
+  color: #896ae4;
+}
+.markdown hr {
+  margin: 1.25rem 0;
+  border: none;
+  border-top: 1px solid #896ae4;
+}
+.markdown strong {
+  font-weight: 700;
+}
+.markdown .callout {
+  margin: 1rem 0;
+  background: #333;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+}
+.markdown .md-button {
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  background: #f3f5f744;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  transition: background 0.15s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(137, 106, 228, 0.1);
+}
+.markdown .md-button:hover {
+  background: #896ae4;
+  transform: translateY(-0.25rem) scale(1.03);
+}
+.markdown .md-button-wrapper {
+  padding: 1.5rem 0;
+  margin-bottom: 0.5rem;
+  width: fit-content;
+  transition: transform 0.15s;
+}
+.markdown .md-button-wrapper:hover {
+  transform: translateY(-0.5rem);
+}
+.markdown .highlight {
+  font-weight: 700;
+  color: #c8baf3;
+}
+
+/* Calendar/FullCalendar Customization */
+:root {
+  --fc-list-event-hover-bg-color: #333;
+  --fc-border-color: none;
+  --fc-button-bg-color: #896ae4;
+  --fc-button-border-color: #896ae4;
+  --fc-button-hover-bg-color: #744ee3;
+  --fc-button-hover-border-color: #744ee3;
+  --fc-button-active-bg-color: #744ee3;
+  --fc-button-active-border-color: #744ee3;
+  --fc-page-bg-color: #333;
+}
+.fc .fc-list-sticky .fc-list-day > *,
+.fc-cell-shaded {
+  border-radius: 0.5rem;
+}
+.fc .fc-list-event-title {
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.fc .fc-list-event-time {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+/* Miscellaneous */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #232323;
+}
+::-webkit-scrollbar-thumb {
+  background: #896ae4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #744ee3;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #181818;
+    color: #fff;
+  }
+  .bg-white {
+    background: #232323;
+    color: #fff;
+  }
+  .text-grey-dark {
+    color: #a3a3a3;
+  }
+}
+
+/* Animations */
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+.scroll-up-button:target {
+  animation: scrollUp 0.5s forwards;
+}
+
+/* End of custom styles */
